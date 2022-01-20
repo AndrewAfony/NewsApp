@@ -1,7 +1,9 @@
 package com.myapp.newsapp.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -24,8 +26,33 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
 
+        getBreakingNews()
+
+        refreshLayout.setOnRefreshListener {
+
+            getBreakingNews()
+
+            refreshLayout.isRefreshing = false
+        }
+    }
+
+    private fun getBreakingNews() {
+
         lifecycleScope.launchWhenCreated {
             viewModel.breakingNews.collect { result ->
+                when (result.isLoading) {
+                    true -> {
+                        showProgressBar()
+                    }
+                    false -> {
+                        hideProgressBar()
+                    }
+                }
+
+                if(result.error != null) {
+                    Toast.makeText(activity, result.error, Toast.LENGTH_LONG).show()
+                }
+
                 newsAdapter.differ.submitList(result.news?.articles)
             }
         }
@@ -37,7 +64,6 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
-
     }
 
     private fun hideProgressBar() {
