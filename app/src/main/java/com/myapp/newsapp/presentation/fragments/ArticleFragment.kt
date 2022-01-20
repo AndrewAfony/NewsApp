@@ -28,6 +28,11 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
                 loadUrl(it)
             }
         }
+
+        toolbar.setNavigationOnClickListener {
+            it.findNavController().navigateUp()
+        }
+
     }
 
 
