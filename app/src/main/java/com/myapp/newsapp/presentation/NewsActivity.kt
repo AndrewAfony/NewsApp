@@ -18,5 +18,6 @@ class NewsActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         bottomNavigationView.setupWithNavController(navController)
+
     }
 }

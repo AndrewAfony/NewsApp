@@ -3,6 +3,7 @@ package com.myapp.newsapp.domain.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.myapp.newsapp.data.remote.newsDto.SourceDto
+import java.io.Serializable
 
 @Entity(
     tableName = "articles"
@@ -17,4 +18,4 @@ data class Article(
     val title: String?,
     val url: String?,
     val urlToImage: String?
-)
+) : Serializable
