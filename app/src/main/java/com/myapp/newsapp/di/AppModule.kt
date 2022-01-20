@@ -6,6 +6,8 @@ import com.myapp.newsapp.BuildConfig
 import com.myapp.newsapp.data.local.NewsDao
 import com.myapp.newsapp.data.local.NewsDatabase
 import com.myapp.newsapp.data.remote.NewsApi
+import com.myapp.newsapp.data.repository.NewsRepositoryImpl
+import com.myapp.newsapp.domain.repository.NewsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,5 +41,10 @@ object AppModule {
         ).build()
     }
 
+    @Provides
+    @Singleton
+    fun provideNewsRepository(db: NewsDatabase, api: NewsApi): NewsRepository {
+        return NewsRepositoryImpl(db, api)
+    }
 
 }

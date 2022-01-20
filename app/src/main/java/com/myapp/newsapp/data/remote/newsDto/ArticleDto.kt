@@ -18,6 +18,16 @@ data class ArticleDto(
     val urlToImage: String
 ) {
     fun toArticle(): Article {
-        return Article(author, content, description, publishedAt, source, title, url, urlToImage)
+        return Article(
+            id = null,
+            author,
+            content,
+            description,
+            publishedAt,
+            source.toSource(),
+            title,
+            url,
+            urlToImage
+        )
     }
 }

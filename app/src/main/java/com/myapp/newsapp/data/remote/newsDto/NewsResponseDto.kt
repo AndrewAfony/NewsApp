@@ -8,6 +8,10 @@ data class NewsResponseDto(
     val totalResults: Int
 ) {
     fun toNewsResponse(): NewsResponse {
-        return NewsResponse(articles, status, totalResults)
+        return NewsResponse(
+            articles.map { it.toArticle() },
+            status,
+            totalResults
+        )
     }
 }
