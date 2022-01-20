@@ -1,10 +1,14 @@
 package com.myapp.newsapp.domain.model
 
-import com.myapp.newsapp.data.local.entities.ArticleEntity
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.myapp.newsapp.data.remote.newsDto.SourceDto
 
-
+@Entity(
+    tableName = "articles"
+)
 data class Article(
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val author: String?,
     val content: String,
     val description: String,
@@ -13,17 +17,4 @@ data class Article(
     val title: String,
     val url: String,
     val urlToImage: String
-) {
-    fun toArticleEntity(): ArticleEntity {
-        return ArticleEntity(
-            author = author,
-            content = content,
-            description = description,
-            publishedAt = publishedAt,
-            source = source,
-            title = title,
-            url = url,
-            urlToImage = urlToImage
-        )
-    }
-}
+)

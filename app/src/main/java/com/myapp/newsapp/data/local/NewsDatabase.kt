@@ -3,9 +3,9 @@ package com.myapp.newsapp.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.myapp.newsapp.data.local.entities.ArticleEntity
+import com.myapp.newsapp.domain.model.Article
 
-@Database(entities = [ArticleEntity::class], version = 1)
+@Database(entities = [Article::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class NewsDatabase: RoomDatabase() {
 

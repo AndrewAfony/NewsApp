@@ -1,19 +1,19 @@
 package com.myapp.newsapp.data.local
 
 import androidx.room.*
-import com.myapp.newsapp.data.local.entities.ArticleEntity
-import kotlinx.coroutines.flow.StateFlow
+import com.myapp.newsapp.domain.model.Article
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addArticle(article: ArticleEntity): Long
+    suspend fun addArticle(article: Article): Long
 
     @Query("SELECT * FROM articles")
-    fun getAllArticles(): StateFlow<List<ArticleEntity>>
+    fun getAllArticles(): Flow<List<Article>>
 
     @Delete
-    suspend fun deleteArticle(article: ArticleEntity)
+    suspend fun deleteArticle(article: Article)
 
 }
