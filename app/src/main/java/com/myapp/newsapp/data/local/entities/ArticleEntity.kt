@@ -8,7 +8,7 @@ import com.myapp.newsapp.data.remote.newsDto.SourceDto
     tableName = "articles"
 )
 data class ArticleEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int?,
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val author: String?,
     val content: String,
     val description: String,
