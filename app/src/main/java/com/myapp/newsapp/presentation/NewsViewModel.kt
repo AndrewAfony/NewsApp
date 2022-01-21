@@ -2,6 +2,7 @@ package com.myapp.newsapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.myapp.newsapp.domain.model.Article
 import com.myapp.newsapp.domain.model.NewsResponse
 import com.myapp.newsapp.domain.repository.NewsRepository
 import com.myapp.newsapp.util.Resource
@@ -93,6 +94,16 @@ class NewsViewModel @Inject constructor(
                     }
                 }.launchIn(this)
         }
+    }
+
+    fun saveArticle(article: Article) = viewModelScope.launch {
+        repository.addArticle(article)
+    }
+
+    fun getSavedNews() = repository.getSavedNews()
+
+    fun deleteArticle(article: Article) = viewModelScope.launch {
+        repository.deleteArticle(article)
     }
 
 }
