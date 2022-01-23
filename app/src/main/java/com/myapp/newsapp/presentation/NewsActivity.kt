@@ -21,5 +21,3 @@ class NewsActivity : AppCompatActivity() {
 
     }
 }
-
-// TODO: 21.01.2022 Добавить Toolbar для BreakingNewsFragment с прокруткой
