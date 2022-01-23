@@ -9,7 +9,7 @@ data class NewsResponseDto(
 ) {
     fun toNewsResponse(): NewsResponse {
         return NewsResponse(
-            articles.map { it.toArticle() },
+            articles.map { it.toArticle() }.toMutableList(),
             status,
             totalResults
         )

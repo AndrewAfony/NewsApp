@@ -70,7 +70,14 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                     Toast.makeText(activity, result.error, Toast.LENGTH_LONG).show()
                 }
 
-                newsAdapter.differ.submitList(result.news?.articles)
+                val totalPages = (result.news?.totalResults?.div(QUERY_PAGE_SIZE))?.plus(2)
+                isLastPage = viewModel.breakingNewsPage == totalPages
+
+                if (isLastPage) {
+                    rvBreakingNews.setPadding(0, 0, 0, 0)
+                }
+
+                newsAdapter.differ.submitList(result.news?.articles?.toList())
             }
         }
     }
@@ -94,12 +101,11 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         isLoading = true
     }
 
-    var isError = false
     var isLoading = false
     var isLastPage = false
     var isScrolling = false
 
-    val scrollListener = object : RecyclerView.OnScrollListener(){
+    private val scrollListener = object : RecyclerView.OnScrollListener(){
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
@@ -124,8 +130,6 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             if (shouldPaginate) {
                 viewModel.getBreakingNews("ru")
                 isScrolling = false
-            } else {
-                rvBreakingNews.setPadding(0, 0, 0, 0)
             }
         }
     }

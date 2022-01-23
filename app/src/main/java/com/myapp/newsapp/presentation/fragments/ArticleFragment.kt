@@ -1,5 +1,6 @@
 package com.myapp.newsapp.presentation.fragments
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebViewClient
@@ -40,6 +41,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
             when(it.itemId) {
                 R.id.favorite -> {
                     viewModel.saveArticle(article)
+                    updateMenu()
                     Snackbar.make(view, "Article Saved", Snackbar.LENGTH_SHORT).show()
                     true
                 }
@@ -53,5 +55,10 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 
     }
 
+    private fun updateMenu() {
 
+        val item = toolbar.menu.findItem(R.id.favorite)
+        item.setIcon(R.drawable.ic_favorite)
+        item.isEnabled = false
+    }
 }
