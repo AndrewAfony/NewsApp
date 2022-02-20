@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Привет</string>
+    <string name="breaking_news">Срочные новости</string>
+    <string name="saved_news">Сохраненные</string>
+    <string name="search_news">Поиск</string>
+    <string name="favorite_button">Любимые</string>
+    <string name="more">Подробнее</string>
 </resources>

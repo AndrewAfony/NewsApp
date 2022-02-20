@@ -4,12 +4,12 @@
     <item
         android:id="@+id/favorite"
         android:icon="@drawable/ic_border_favorite"
-        android:title="Favorite Button"
+        android:title="@string/favorite_button"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/more"
-        android:title="More"
+        android:title="@string/more"
         app:showAsAction="never"/>
 
 </menu>
