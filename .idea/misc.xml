@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_all_news.xml" value="0.2851851851851852" />
+        <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_border_favorite.xml" value="0.2777777777777778" />
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_breaking_news.xml" value="0.2851851851851852" />
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_favorite.xml" value="0.2851851851851852" />
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/image_bg.xml" value="0.2814814814814815" />
@@ -14,7 +15,7 @@
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/layout/fragment_breaking_news.xml" value="0.30364583333333334" />
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/layout/fragment_saved_news.xml" value="0.30364583333333334" />
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/layout/fragment_search_news.xml" value="0.30364583333333334" />
-        <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/layout/item_article_preview.xml" value="0.7333333333333334" />
+        <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/layout/item_article_preview.xml" value="0.48015122873345933" />
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/menu/article_menu.xml" value="0.30364583333333334" />
         <entry key="..\:/AndroidStudioProjects/NewsApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.30364583333333334" />
       </map>

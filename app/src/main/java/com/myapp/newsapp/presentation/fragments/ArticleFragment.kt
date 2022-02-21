@@ -1,6 +1,5 @@
 package com.myapp.newsapp.presentation.fragments
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebViewClient
@@ -12,7 +11,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.myapp.newsapp.R
 import com.myapp.newsapp.presentation.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_news.*
 import kotlinx.android.synthetic.main.fragment_article.*
 
 @AndroidEntryPoint
@@ -59,6 +57,6 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 
         val item = toolbar.menu.findItem(R.id.favorite)
         item.setIcon(R.drawable.ic_favorite)
-        item.isEnabled = false
+        item.isChecked = !item.isChecked
     }
 }
