@@ -6,6 +6,7 @@ import com.myapp.newsapp.domain.model.Article
 import com.myapp.newsapp.domain.model.NewsResponse
 import com.myapp.newsapp.domain.repository.NewsRepository
 import com.myapp.newsapp.util.Resource
+import com.myapp.newsapp.util.toNormTime
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -42,6 +43,7 @@ class NewsViewModel @Inject constructor(
                 .onEach {result ->
                     when(result) {
                         is Resource.Success -> {
+
                             breakingNewsPage++
                             if(breakingNewsResponse == null) {
                                 breakingNewsResponse = result.data
@@ -52,6 +54,7 @@ class NewsViewModel @Inject constructor(
                                     oldArticles?.addAll(newArticles)
                                 }
                             }
+
                             breakingNews.value = breakingNews.value.copy(
                                 isLoading = false,
                                 news = breakingNewsResponse

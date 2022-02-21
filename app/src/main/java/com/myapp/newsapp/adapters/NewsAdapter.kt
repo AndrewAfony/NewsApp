@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myapp.newsapp.databinding.ItemArticlePreviewBinding
 import com.myapp.newsapp.domain.model.Article
+import com.myapp.newsapp.util.toNormTime
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
@@ -40,7 +41,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             tvSource.text = article.source?.name
             tvTitle.text = article.title
 //            tvDescription.text = article.description
-            tvPublishedAt.text = article.publishedAt
+            tvPublishedAt.text = article.publishedAt?.toNormTime()
 
             root.setOnClickListener {
                 onItemClickListener?.let {
